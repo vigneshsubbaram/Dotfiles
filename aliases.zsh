@@ -3,7 +3,7 @@
 alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git' ';' -print0 | xargs -I {} -0 git -C {} pull -q"
 
 # Colorize grep output (good for log files)
-alias grep='grep --color=auto'
+alias grep='grep --color=auto -I --exclude-dir=".*" --exclude-dir="venv3"'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
@@ -50,3 +50,6 @@ CYGWIN* | MINGW32* | MSYS* | MINGW*)
         # echo 'Other OS'
         ;;
 esac
+
+#disable globbing for pip
+alias pip='noglob pip'
